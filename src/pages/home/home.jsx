@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { HotelCard } from "../../components/Hotel/card/HotelCard";
 import { useEffect, useState } from "react";
+import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
 
 const CarrouselContainer = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const SectionLayout = styled.section`
   grid-template-columns: 1fr 3fr;
   gap: 50px;
 
-  padding: 10px 150px;
+  padding: 20px 150px;
 `;
 
 const HotelsContainer = styled.div`
@@ -23,6 +24,10 @@ const HotelsContainer = styled.div`
   flex-direction: column;
 
   gap: 70px;
+  max-height: 100vh;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
 `;
 
 const FilterContainer = styled.div`
@@ -39,22 +44,40 @@ const FilterContainer = styled.div`
 
 const HomeMain = styled.main`
   font-family: var(--font-family);
+  padding: 20px 0;
 `;
 
 export const Home = () => {
   const [hotels, setHotels] = useState([]);
+  const [hotelsPage, setHotelsPage] = useState(1);
+  const [hasMoreToLoad, setHasMoreToLoad] = useState(true);
+
+  function loadMoreHotels() {
+    console.log(hotelsPage);
+    setHotelsPage(hotelsPage + 1);
+  }
 
   useEffect(() => {
     async function getHotels() {
-      const response = await fetch("http://localhost:3000/hotels");
-      const htls = await response.json();
+      try {
+        const response = await fetch(
+          "http://localhost:3000/hotels?page=" + hotelsPage
+        );
+        const htls = await response.json();
 
-      hotels.push(...htls);
-      setHotels([...hotels]);
+        if (htls.length == 0) {
+          return setHasMoreToLoad(false);
+        }
+
+        hotels.push(...htls);
+        setHotels([...hotels]);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     getHotels();
-  }, []);
+  }, [hotelsPage]);
 
   return (
     <HomeMain>
@@ -77,6 +100,7 @@ export const Home = () => {
           {hotels.map((hotel) => (
             <HotelCard key={hotel.id} hotel={hotel} />
           ))}
+          {hasMoreToLoad && <LoadMoreButton onclick={loadMoreHotels} />}
         </HotelsContainer>
       </SectionLayout>
     </HomeMain>
