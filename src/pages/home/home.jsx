@@ -1,6 +1,41 @@
 import styled from "styled-components";
 import { HotelCard } from "../../components/Hotel/card/HotelCard";
 
+const CarrouselContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  padding: 150px;
+`;
+
+const SectionLayout = styled.section`
+  display: grid;
+
+  grid-template-columns: 1fr 3fr;
+  gap: 50px;
+
+  padding: 10px 150px;
+`;
+
+const HotelsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 70px;
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & select {
+    margin-bottom: auto;
+
+    padding: 10px;
+  }
+`;
+
 export const Home = () => {
   const hotels = [
     {
@@ -208,41 +243,6 @@ export const Home = () => {
       category: null,
     },
   ];
-
-  const CarrouselContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    padding: 150px;
-  `;
-
-  const SectionLayout = styled.section`
-    display: grid;
-
-    grid-template-columns: 1fr 3fr;
-    gap: 50px;
-
-    padding: 10px 150px;
-  `;
-
-  const HotelsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    gap: 70px;
-  `;
-
-  const FilterContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    & select {
-      margin-bottom: auto;
-
-      padding: 10px;
-    }
-  `;
 
   return (
     <main>
