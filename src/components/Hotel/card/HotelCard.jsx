@@ -5,8 +5,10 @@ import styled from "styled-components";
 const HotelCardContainer = styled.div`
   display: flex;
 
-  width: 1220px;
+  /* /* width: 1220px; */
   height: 280px;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 
   & img {
     min-width: 385px;
