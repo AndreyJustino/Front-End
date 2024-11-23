@@ -30,10 +30,10 @@ Atualmente, a plataforma de hospedagens possui uma grande variedade de opções,
 
 ## 3. Solução
 
-Para resolver esse problema, desenvolvemos uma aplicação que categoriza as hospedagens e implementa filtros personalizados, oferecendo uma solução mais eficaz para os usuários encontrarem rapidamente as opções ideais. A plataforma agora permite que os usuários filtrem as hospedagens com base em preferências como localização, preço, tipo de acomodação, entre outros.
+Para resolver esse problema, desenvolvemos uma aplicação que categoriza as hospedagens e implementa filtros personalizados, oferecendo uma solução mais eficaz para os usuários encontrarem rapidamente as opções ideais. A plataforma agora permite que os usuários filtrem as hospedagens.
 
 ### Inovações e diferenciais da solução:
-- **Sistema de Categorização:** Hospedagens organizadas por categorias específicas, como tipo de imóvel, faixa de preço, e avaliações, tornando a busca mais intuitiva.
+- **Sistema de Categorização:** Hospedagens organizadas por categorias específicas.
 - **Filtros Dinâmicos:** Um sistema de filtros interativo que se adapta às preferências do usuário, possibilitando uma busca refinada e personalizada.
 - **Interface Amigável:** Layout simples e fácil de usar, proporcionando uma navegação rápida e eficiente.
 
@@ -70,7 +70,7 @@ A aplicação foi desenvolvida utilizando um conjunto de tecnologias modernas pa
 O projeto possui uma série de funcionalidades que melhoram a experiência do usuário ao buscar e interagir com as hospedagens. As principais funcionalidades são:
 
 - **Filtros Personalizados:**  
-  Permite aos usuários refinar a busca de hospedagens com base em critérios como localização, faixa de preço, tipo de acomodação, avaliações, entre outros. O sistema de filtros é dinâmico e se adapta de acordo com as opções selecionadas.
+  Permite aos usuários refinar a busca de hospedagens com base em critérios como tipo de hospedagem. O sistema de filtros é dinâmico e se adapta de acordo com as opções selecionadas.
 
 - **Sistema de Categorização Automática:**  
   Utilizando o **Google Gemini**, as hospedagens são categorizadas automaticamente com base em características como tipo de imóvel, conforto, e preferências dos usuários. Isso facilita a organização e a busca por opções específicas.
