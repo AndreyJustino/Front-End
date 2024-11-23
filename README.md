@@ -96,7 +96,7 @@ Para rodar o projeto React com Vite localmente, siga as etapas abaixo:
 Clone o repositório para o seu computador:
 
     ```bash
-    https://github.com/AndreyJustino/Front-End
+    git clone https://github.com/AndreyJustino/Front-End
     ```
 
 ### 2. Instalar as Dependências
@@ -109,14 +109,6 @@ Acesse o diretório do projeto e instale as dependências necessárias com o npm
     ```
 
 ### 3. Rodar o Servidor de Desenvolvimento
-
-Inicie o servidor de desenvolvimento com o comando:
-
-    ```bash
-    npm run dev
-    ```
-
-### 4. Rodar o Servidor de Desenvolvimento
 
 Inicie o servidor de desenvolvimento com o comando:
 
