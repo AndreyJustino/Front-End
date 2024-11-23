@@ -87,3 +87,43 @@ O projeto possui uma série de funcionalidades que melhoram a experiência do us
 - **Exibição de Hospedagens com Detalhes:**  
   As hospedagens são exibidas de forma clara, com informações detalhadas, incluindo preços, descrição, imagens, e avaliações de outros usuários, facilitando a escolha da opção ideal.
 
+## 6. Como Usar
+
+Para rodar o projeto React com Vite localmente, siga as etapas abaixo:
+
+### 1. Clonar o Repositório
+
+Clone o repositório para o seu computador:
+
+    ```bash
+    https://github.com/AndreyJustino/Front-End
+    ```
+
+### 2. Instalar as Dependências
+
+Acesse o diretório do projeto e instale as dependências necessárias com o npm:
+
+    ```bash
+    cd front-end
+    npm install
+    ```
+
+### 3. Rodar o Servidor de Desenvolvimento
+
+Inicie o servidor de desenvolvimento com o comando:
+
+    ```bash
+    npm run dev
+    ```
+
+### 4. Rodar o Servidor de Desenvolvimento
+
+Inicie o servidor de desenvolvimento com o comando:
+
+    ```bash
+    npm run dev
+    ```
+
+Isso fará o servidor rodar localmente. Você verá no terminal um link para acessar a aplicação, geralmente http://localhost:5173.
+
+Agora você está pronto para rodar o projeto React com Vite no seu ambiente local!
