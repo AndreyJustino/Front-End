@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import styled from "styled-components";
+import { CardCategory } from "./CardCategory";
 
 const HotelCardContainer = styled.div`
   display: flex;
@@ -8,11 +9,11 @@ const HotelCardContainer = styled.div`
   /* /* width: 1220px; */
   height: 280px;
 
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   & img {
-    min-width: 385px;
-    min-height: 280px;
+    width: 385px;
+    height: 280px;
   }
 
   & .infos-container {
@@ -43,7 +44,7 @@ const CardTitle = styled.h3`
   padding: 0;
 `;
 
-const DescriptionTitle = styled.p`
+const CardDescription = styled.p`
   font-size: 20px;
   margin: 0;
 
@@ -64,15 +65,15 @@ const AboutButton = styled.button`
 `;
 
 export function HotelCard({ hotel }) {
-  const { name, description, thumb } = hotel;
+  const { name, description, thumb, category } = hotel;
 
   return (
     <HotelCardContainer>
       <img src={thumb} alt="" />
       <div className="infos-container">
         <CardTitle>{name}</CardTitle>
-        <DescriptionTitle>{description}</DescriptionTitle>
-
+        <CardDescription>{description}</CardDescription>
+        <CardCategory category={category} />
         <div className="button-container">
           <AboutButton>Saiba Mais</AboutButton>
         </div>
