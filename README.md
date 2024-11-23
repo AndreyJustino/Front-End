@@ -10,10 +10,10 @@ O objetivo principal deste projeto é proporcionar uma experiência mais agradá
 
 ### Equipe:  
 - Andrey Justino – Líder  
-- Débora Laís – QA  
-- Kenned Ferreira – Front-End  
-- Jamyle Elen – Design  
-- Gil Maik – Back-End  
+- [Débora Laís](https://github.com/Debora-Laiss) – QA  
+- [Kenned Ferreira](https://github.com/kennedfer) – Front-End  
+- [Jamyle Elen](https://github.com/Jamyle-Elen) – Design  
+- [Gil Maik](https://github.com/JuniorReisx) – Back-End  
 
 ---
 
