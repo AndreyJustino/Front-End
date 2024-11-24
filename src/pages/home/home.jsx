@@ -137,7 +137,7 @@ export const Home = () => {
         onChange={handleSearchChange}
         type="text"
         placeholder="Glória Plaza Hotel"
-        />
+      />
       <SectionLayout>
         <FilterContainer>
           <label htmlFor="select-filter">Filtrar Por</label>
@@ -158,8 +158,6 @@ export const Home = () => {
           {hasMore && <LoadMoreButton onclick={handleLoadMore} />}
         </HotelsContainer>
       </SectionLayout>
-<BasicSpeedDial/>
-      </HomeMain>
-  
-);
+    </HomeMain>
+  );
 };
