@@ -2,21 +2,13 @@ import styled from "styled-components";
 import { HotelCard } from "../../components/Hotel/card/HotelCard";
 import { useEffect, useState } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
-
-const CarrouselContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  padding: 150px;
-`;
+import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
 
 const SectionLayout = styled.section`
   display: grid;
 
   grid-template-columns: 1fr 3fr;
   gap: 50px;
-
-  padding: 20px 150px;
 `;
 
 const HotelsContainer = styled.div`
@@ -43,14 +35,24 @@ const FilterContainer = styled.div`
 `;
 
 const HomeMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
   font-family: var(--font-family);
-  padding: 20px 0;
+  padding: 20px 150px;
+
+  & input {
+    padding: 10px;
+  }
 `;
 
 export const Home = () => {
   const [hotels, setHotels] = useState([]);
   const [hotelsPage, setHotelsPage] = useState(1);
   const [hasMoreToLoad, setHasMoreToLoad] = useState(true);
+
+  const carrouselImages = hotels.slice(5, 10).map((hotel) => hotel.thumb);
 
   function loadMoreHotels() {
     console.log(hotelsPage);
@@ -81,10 +83,9 @@ export const Home = () => {
 
   return (
     <HomeMain>
-      <CarrouselContainer>
-        <h3>Recomendacoes para voce</h3>
-        <span>images</span>
-      </CarrouselContainer>
+      <Carrousel images={carrouselImages} />
+      <label htmlFor="">Pesquisar Hotel:</label>
+      <input type="text" placeholder="Glória Plaza Hotel" />
       <SectionLayout>
         <FilterContainer>
           <label htmlFor="select-filter">Filtrar Por</label>
