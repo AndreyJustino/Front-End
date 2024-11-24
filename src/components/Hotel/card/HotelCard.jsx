@@ -113,7 +113,7 @@ export function HotelCard({ hotel }) {
     thumb = Images.HotelPlaceholder,
     category,
     id,
-    amenities,
+    amenities = [],
   } = hotel;
 
   const navigate = useNavigate();
