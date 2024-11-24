@@ -16,14 +16,14 @@ export default function BasicSpeedDial() {
     <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 150, right: 100 }}
+        sx={{ position: 'absolute', bottom: 800, right: -100 }}
         icon={<SpeedDialIcon />}
         onClick={handleToggle}
       />
       {showCard && (
         <Box
           onClick={(e) => e.stopPropagation()}
-          sx={{ position: 'absolute', bottom: 250, right: 100 }}
+          sx={{ position: 'absolute', bottom: 900, right: -100 }}
         >
           <RecipeReviewCard />
         </Box>
