@@ -84,14 +84,17 @@ export default function RecipeReviewCard() {
           ))}
         </div>
 
-        <TextField
-          label="Digite sua mensagem"
-          variant="outlined"
-          value={userMessage}
-          onChange={(e) => setUserMessage(e.target.value)}
-          fullWidth
-          sx={{ marginBottom: 2 }}
-        />
+<TextField
+  label="Digite sua mensagem"
+  variant="outlined"
+  value={userMessage}
+  onChange={(e) => setUserMessage(e.target.value)}
+  fullWidth
+  sx={{
+    marginBottom: 2,
+    padding: '10px 0px 0px 0px'
+  }}
+/>
 
         <Button variant="contained" color="primary" onClick={handleSendMessage}>
           Enviar

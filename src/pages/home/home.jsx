@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
 import { LoadingComponentInitial } from "../../components/Loading/Loading";
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
+import BasicSpeedDial from "../../components/I.A onfly/iaOnfly";
 
 const HomeMain = styled.main`
   display: flex;
@@ -132,7 +133,7 @@ export const Home = () => {
         onChange={handleSearchChange}
         type="text"
         placeholder="Glória Plaza Hotel"
-      />
+        />
       <SectionLayout>
         <FilterContainer>
           <label htmlFor="select-filter">Filtrar Por</label>
@@ -153,6 +154,8 @@ export const Home = () => {
           {hasMore && <LoadMoreButton onclick={handleLoadMore} />}
         </HotelsContainer>
       </SectionLayout>
-    </HomeMain>
-  );
+<BasicSpeedDial/>
+      </HomeMain>
+  
+);
 };
