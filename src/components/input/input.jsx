@@ -19,11 +19,11 @@ const InputForm = styled.input`
     
 `
 
-export const Input = ({placeholder, set, type}) => {
+export const Input = ({placeholder, set, type, min, max, minLength, maxLength, pattern}) => {
 
     return (
         <>
-            <InputForm type={type} placeholder={placeholder} onChange={(e) => {
+            <InputForm type={type} placeholder={placeholder} minLength={minLength} maxLength={maxLength} min={min} max={max} pattern={pattern} onChange={(e) => {
                 set(e.target.value)
             }}></InputForm>
         </>
