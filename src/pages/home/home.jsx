@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { HotelCard } from "../../components/Hotel/card/HotelCard";
 import { useEffect, useState } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
+import { LoadingComponentInitial } from '../../components/Loading/Loading'
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
 
 const HomeMain = styled.main`
@@ -75,11 +76,17 @@ export const Home = () => {
   const [hasMoreToLoad, setHasMoreToLoad] = useState(true);
   const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
+  
+  const [isLoading, setIsLoading] = useState(true);
 
   const carrouselImages = hotels
     .slice(0, 5)
     .filter((hotel) => hotel.thumb)
     .map((hotel) => hotel.thumb);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000)
 
   function loadMoreHotels() {
     setHotelsPage(hotelsPage + 1);
@@ -128,6 +135,7 @@ export const Home = () => {
 
   return (
     <HomeMain>
+      <LoadingComponentInitial isLoading={isLoading} />
       <Carrousel images={carrouselImages} />
       <label htmlFor="">Pesquisar Hotel:</label>
       <input
