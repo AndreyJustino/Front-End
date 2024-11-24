@@ -1,15 +1,15 @@
-import React from 'react'
-import { Button } from '../../components/button/button'
-import { Input } from '../../components/input/input'
+import {useState} from 'react'
+import { Button } from '../../components/button/button.jsx'
+import { Input } from '../../components/input/input.jsx'
 import styled from 'styled-components'
 import imgUrl from "../../assets/img/fundoLoginUsuario.png"
 import imgLogo from "../../assets/img/logoOnfly.png"
+import { useNavigate, Link } from 'react-router-dom'
 
 const Main = styled.main`
     display: flex;
     width: 100vw;
     height: 100vh;
-    border: 2px solid red;
     background-color: #0597FA;
     align-items: center;
 `
@@ -20,7 +20,6 @@ const SectionImg = styled.section`
     background-position: center;
     width: 50%;
     height: 100%;
-    border: 2px solid green;
 
     @media (max-width: 768px) {
         display: none;
@@ -48,10 +47,7 @@ const Div = styled.div`
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    // height: 60px;
-    // padding: 15px;
     gap: 10px;
-    // border: 2px solid yellow
 `
 
 const Label = styled.label`
@@ -72,25 +68,65 @@ const Img = styled.img`
     height: 100%;
 `
 
+const Paragrafo = styled.p`
+    color: #0077FF;
+    font-size: 18px;
+    font-family: var(--font-family);
+    text-align: right;
+    cursor: pointer;
+`
+
+const SubParagrafo = styled.p`
+    color: #0077FF;
+    font-size: 18px;
+    font-family: var(--font-family);
+    text-align: center;
+    cursor: pointer;
+`
+
 export const LoginUser = () => {
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const navigate = useNavigate();
+
+    async function loginUser(e) {
+        e.preventDefault();
+        try{
+            // dados estão vindo para ca quando clicado no botão
+            // basta envia pro back pra ve se é valido
+            // lembrar de arrumar as rotas dos paragros
+            console.table({email, password})
+
+            navigate('/');
+        }catch(error){
+            console.log(error)
+        }
+    }
+
   return (
     <>
         <Main>
             <SectionImg></SectionImg>
-            <Forms autoComplete='off'>
+            <Forms autoComplete='off' onSubmit={loginUser}>
                 <Moldura>
                     <Img src={imgLogo}></Img>
                 </Moldura>
                 <Div>
                     <Label htmlFor="email">Qual seu e-mail ?</Label>
-                    <Input type="email" placeholder="Digite seu E-mail" id="email" />
+                    <Input type="email" placeholder="Digite seu E-mail" id="email" set={setEmail}/>
                 </Div>
                 
                 <Div>
                     <Label htmlFor="senha">Agora sua senha</Label>
-                    <Input type="password" placeholder="Digite sua senha" id="senha"/>
+                    <Input type="password" placeholder="Digite sua senha" id="senha" set={setPassword}/>
                 </Div>
-                <Button text={"Vamos !"} to={"/"}></Button>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Paragrafo>Sou Empresa ?</Paragrafo>
+                </Link>
+                <Button text={"Vamos !"} type={"submit"}></Button>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <SubParagrafo>Não tenho cadastro</SubParagrafo>
+                </Link>
             </Forms>
         </Main>
     </>
