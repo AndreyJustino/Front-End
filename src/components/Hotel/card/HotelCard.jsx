@@ -5,6 +5,7 @@ import { CardCategory } from "./CardCategory";
 import { useNavigate } from "react-router-dom";
 import Images from "../../../assets/images";
 import { CardImage } from "./CardImage";
+import { CardIcons } from "./CardIcons";
 
 const HotelCardContainer = styled.div`
   display: flex;
@@ -112,6 +113,7 @@ export function HotelCard({ hotel }) {
     thumb = Images.HotelPlaceholder,
     category,
     id,
+    amenities,
   } = hotel;
 
   const navigate = useNavigate();
@@ -129,6 +131,7 @@ export function HotelCard({ hotel }) {
           {description || "Descrição indisponível"}
         </CardDescription>
         <CardCategory category={category} />
+        <CardIcons icons={amenities} />
         <div className="button-container">
           <AboutButton onClick={(_) => redirectToHotelPage(id)}>
             Saiba Mais
