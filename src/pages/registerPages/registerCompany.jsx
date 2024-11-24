@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../../components/button/button'
 import { Input } from '../../components/input/input'
 import styled from 'styled-components'
 import { HeaderRegister } from '../../components/headerRegister/headerRegister'
+import { useNavigate } from 'react-router-dom'
 
 const Main = styled.main`
     display: flex;
@@ -71,43 +72,63 @@ const Paragraf = styled.p`
 `;
 
 export const RegisterCompany = () => {
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [telefone, setTelefone] = useState()
+  const [cnpj, setCnpj] = useState()
+  const [endereco, setEndereco]= useState()
+  const navigate = useNavigate()
+
+  async function registerCompany(e) {
+    e.preventDefault()
+    try{
+      // dados ja estão chegando aqui só manda pro back
+      console.table({name,email,password,telefone,cnpj,endereco})
+
+      navigate("/")
+    }catch(error){
+      console.log(error)
+    }
+  }
+
     return (
       <>
         <Main>
-      <HeaderRegister/>
-          <Forms autoComplete="on">
+          <HeaderRegister/>
+          <Forms autoComplete="off" onSubmit={registerCompany}>
             <Moldura>
               <Parag>Cadastre sua Empresa</Parag>
             </Moldura>
             <Container>
               <Div>
                 <Label htmlFor="name">Nome</Label>
-                <Input type="text" id="name" />
+                <Input type="text" id="name" set={setName}/>
               </Div>
               
               <Div>
                 <Label htmlFor="phone">Telefone</Label>
-                <Input type="text" id="phone" />
+                <Input type="text" id="phone" set={setTelefone}/>
               </Div>
               
               <Div>
                 <Label htmlFor="cnpj">CNPJ</Label>
-                <Input type="text" id="cnpj" />
+                <Input type="text" id="cnpj" set={setCnpj}/>
               </Div>
               
               <Div>
                 <Label htmlFor="email">E-Mail</Label>
-                <Input type="email" id="email" />
+                <Input type="email" id="email" set={setEmail}/>
               </Div>
               
               <Div>
                 <Label htmlFor="address">Endereço</Label>
-                <Input type="text" id="address" />
+                <Input type="text" id="address" set={setEndereco}/>
               </Div>
               
               <Div>
                 <Label htmlFor="password">Senha</Label>
-                <Input type="password" id="password" />
+                <Input type="password" id="password" set={setPassword}/>
               </Div>
             </Container>
             
@@ -115,7 +136,7 @@ export const RegisterCompany = () => {
               <a href="/registerUser">Sou cliente?</a>
             </Paragraf>
             
-            <Button text={"Cadastrar"} to={"/"} />
+            <Button text={"Cadastrar"} type={"submit"}/>
           </Forms>
         </Main>
       </>
