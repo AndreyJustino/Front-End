@@ -4,7 +4,13 @@ const CarrouselContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 20px 0;
+  width: calc(100vw - 320px);
+
+  gap: 10px;
+
+  @media (max-width: 1366px) {
+    width: calc(100vw - 40px);
+  }
 `;
 
 const ImagesContainer = styled.div`
@@ -20,16 +26,6 @@ const ImagesContainer = styled.div`
     outline: none;
     background: none;
   }
-  /* 
-  & div:nth-child(1),
-  & div:nth-child(5) {
-    height: 180px;
-  }
-
-  & div:nth-child(2),
-  & div:nth-child(4) {
-    height: 200px;
-  } */
 
   & img {
     width: 100%;
@@ -61,7 +57,7 @@ const ImagesContainer = styled.div`
 export function Carrousel({ images }) {
   return (
     <CarrouselContainer>
-      <h3>Recomendacoes para voce</h3>
+      <h3>Recomendações para você</h3>
       <ImagesContainer>
         {images.map((image, index) => (
           <div key={index}>

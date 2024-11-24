@@ -86,13 +86,31 @@ const AboutButton = styled.button`
   }
 `;
 
+// [
+//   {
+//     "key": "WI_FI",
+//     "label": "Internet"
+//   },
+//   {
+//     "key": "BREAKFAST",
+//     "label": "Café da manhã"
+//   },
+//   {
+//     "key": "PARKING",
+//     "label": "Estacionamento"
+//   },
+//   {
+//     "key": "RESTAURANT",
+//     "label": "Restaurante"
+//   }
+// ]
+
 export function HotelCard({ hotel }) {
   const {
     name = "Nome não disponível",
     description = "Descrição indisponível",
     thumb = Images.HotelPlaceholder,
     category,
-    stars,
     id,
   } = hotel;
 
@@ -111,7 +129,6 @@ export function HotelCard({ hotel }) {
           {description || "Descrição indisponível"}
         </CardDescription>
         <CardCategory category={category} />
-        {stars ? "⭐".repeat(stars) : "Sem classificação"}
         <div className="button-container">
           <AboutButton onClick={(_) => redirectToHotelPage(id)}>
             Saiba Mais
