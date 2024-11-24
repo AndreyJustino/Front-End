@@ -8,6 +8,11 @@ const CategorySpan = styled.span`
 
   text-transform: capitalize;
   margin-right: auto;
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+    padding: 5px 10px;
+  }
 `;
 
 const categoriesColors = {

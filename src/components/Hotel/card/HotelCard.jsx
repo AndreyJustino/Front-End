@@ -7,7 +7,7 @@ const HotelCardContainer = styled.div`
   display: flex;
 
   /* /* width: 1220px; */
-  height: 280px;
+  /* height: 280px; */
 
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -38,10 +38,20 @@ const HotelCardContainer = styled.div`
   & button {
     margin-left: auto;
   }
+
+  @media (max-aspect-ratio: 1) {
+    & img {
+      display: none;
+    }
+
+    & .infos-container {
+      padding: 20px;
+    }
+  }
 `;
 
 const CardTitle = styled.h3`
-  font-size: 32px;
+  font-size: 150%;
   margin: 0;
   padding: 0;
 `;
@@ -53,7 +63,11 @@ const CardDescription = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+  }
 `;
 
 const AboutButton = styled.button`
@@ -64,6 +78,13 @@ const AboutButton = styled.button`
 
   color: var(--card-button-foreground);
   background-color: var(--card-button-background);
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+  }
 `;
 
 export function HotelCard({ hotel }) {

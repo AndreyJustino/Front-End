@@ -4,11 +4,39 @@ import { useEffect, useState } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
 
+const HomeMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-family: var(--font-family);
+  padding: 20px 150px;
+
+  & input {
+    padding: 10px;
+  }
+
+  @media (max-aspect-ratio: 1) {
+    padding: 20px;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 20px;
+  }
+`;
+
 const SectionLayout = styled.section`
   display: grid;
 
   grid-template-columns: 1fr 3fr;
   gap: 50px;
+
+  @media (max-aspect-ratio: 1) {
+  }
+
+  @media (max-width: 1366px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const HotelsContainer = styled.div`
@@ -20,6 +48,10 @@ const HotelsContainer = styled.div`
 
   overflow-y: scroll;
   scrollbar-width: none;
+
+  @media (max-aspect-ratio: 1) {
+    gap: 30px;
+  }
 `;
 
 const FilterContainer = styled.div`
@@ -30,19 +62,6 @@ const FilterContainer = styled.div`
   & select {
     margin-bottom: auto;
 
-    padding: 10px;
-  }
-`;
-
-const HomeMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  font-family: var(--font-family);
-  padding: 20px 150px;
-
-  & input {
     padding: 10px;
   }
 `;
@@ -67,7 +86,7 @@ export const Home = () => {
         );
         const htls = await response.json();
 
-        if (htls.length == 0) {
+        if (htls.length < 10) {
           return setHasMoreToLoad(false);
         }
 

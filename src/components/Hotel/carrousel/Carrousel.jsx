@@ -19,11 +19,11 @@ const ImagesContainer = styled.div`
     flex-grow: 1;
   }
 
-    & div:nth-child(1),
+  & div:nth-child(1),
   & div:nth-child(5) {
     height: 180px;
   }
-  
+
   & div:nth-child(2),
   & div:nth-child(4) {
     height: 200px;
@@ -36,6 +36,23 @@ const ImagesContainer = styled.div`
     background-size: fill;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  @media (max-width: 1366px) {
+  }
+
+  @media (max-aspect-ratio: 1) {
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    width: calc(100vw - 40px);
+
+    & div:nth-child(n) {
+      height: 150px;
+      width: 200px;
+
+      flex-shrink: 0;
+    }
   }
 `;
 
