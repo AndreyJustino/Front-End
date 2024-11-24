@@ -2,12 +2,13 @@
 
 import styled from "styled-components";
 import { CardCategory } from "./CardCategory";
+import { useNavigate } from "react-router-dom";
 
 const HotelCardContainer = styled.div`
   display: flex;
 
   /* /* width: 1220px; */
-  height: 280px;
+  /* height: 280px; */
 
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -38,10 +39,20 @@ const HotelCardContainer = styled.div`
   & button {
     margin-left: auto;
   }
+
+  @media (max-aspect-ratio: 1) {
+    & img {
+      display: none;
+    }
+
+    & .infos-container {
+      padding: 20px;
+    }
+  }
 `;
 
 const CardTitle = styled.h3`
-  font-size: 32px;
+  font-size: 150%;
   margin: 0;
   padding: 0;
 `;
@@ -53,7 +64,11 @@ const CardDescription = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+  }
 `;
 
 const AboutButton = styled.button`
@@ -64,10 +79,32 @@ const AboutButton = styled.button`
 
   color: var(--card-button-foreground);
   background-color: var(--card-button-background);
+  transition: scale 0.2s;
+
+  &:hover {
+    scale: 1.02;
+    cursor: pointer;
+  }
+
+  &:active {
+    scale: 1;
+  }
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+  }
 `;
 
 export function HotelCard({ hotel }) {
-  const { name, description, thumb, category } = hotel;
+  const { name, description, thumb, category, id } = hotel;
+  const navigate = useNavigate();
+
+  function redirectToHotelPage(id) {
+    navigate("aboutHosting/" + id);
+  }
 
   return (
     <HotelCardContainer>
@@ -79,7 +116,9 @@ export function HotelCard({ hotel }) {
         <CardDescription>{description}</CardDescription>
         <CardCategory category={category} />
         <div className="button-container">
-          <AboutButton>Saiba Mais</AboutButton>
+          <AboutButton onClick={(_) => redirectToHotelPage(id)}>
+            Saiba Mais
+          </AboutButton>
         </div>
       </div>
     </HotelCardContainer>

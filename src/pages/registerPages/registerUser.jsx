@@ -4,7 +4,7 @@ import { Input } from "../../components/input/input"
 import { Button } from "../../components/button/button"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
-
+import api from "../../services/apiService.jsx"
 
 const Main = styled.main`
     background-color: #0597FA;
@@ -12,10 +12,11 @@ const Main = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
 `
 
 const Form = styled.form`
-    height: 90%;
+    height: 70%;
     width: 50vw;
     background-color: white;
     border-radius: 10px;
@@ -56,7 +57,8 @@ const Paragrafo = styled.p`
     color: #0077FF;
     font-size: 18px;
     font-family: var(--font-family);
-    text-align: left;
+    display: flex;
+    justify-content: end;
     cursor: pointer;
 `
 
@@ -65,18 +67,29 @@ export const RegisterUser = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-    const [idade, setIdade] = useState()
-    const [telefone, setTelefone] = useState()
+    const [age, setIdade] = useState()
+    const [phoneNumber, setTelefone] = useState()
 
     async function registerUser(e) {
         e.preventDefault()
-        try{
-            // dados chegando aqui só manda pro back
-            console.table({name,email,password,idade,telefone})
+        try {
+            const response = await api.post('/user/person', {
+                name,
+                email,
+                password,
+                age,
+                phoneNumber
+            })
 
-            navigate("/")
-        }catch(error){
-            console.log(error)
+            if (response.status === 201) {
+                console.log('User registered:', response.data)
+                navigate("/")
+            } else {
+                console.error('Failed to register:', response.data.message)
+            }
+        } catch (error) {
+            console.error('Error registering user:', error.response?.data || error.message)
+            alert(`Error: ${error.response?.data?.message || 'Failed to register user'}`)
         }
     }
 
@@ -111,12 +124,11 @@ export const RegisterUser = () => {
                         <Input set={setTelefone} type={"tel"} placeholder={"(xx) xxxxx-xxxx"} id='telefone'></Input>
                     </Div>
                     <Link to="/registerCompany" style={{ textDecoration: 'none' }}>
-                        <Paragrafo>Sou Empresa</Paragrafo>
+                        <Paragrafo>Sou Empresa?</Paragrafo>
                     </Link>
                     <Button text={"Cadastrar"} type={"submit"}></Button>
                 </Form>
             </Main>
-
         </>
     )
 }

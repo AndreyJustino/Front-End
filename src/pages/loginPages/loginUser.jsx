@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import imgUrl from "../../assets/img/fundoLoginUsuario.png"
 import imgLogo from "../../assets/img/logoOnfly.png"
 import { useNavigate, Link } from 'react-router-dom'
+import api from "../../services/apiService.jsx"
 
 const Main = styled.main`
     display: flex;
@@ -92,17 +93,15 @@ export const LoginUser = () => {
     async function loginUser(e) {
         e.preventDefault();
         try{
-            // dados estão vindo para ca quando clicado no botão
-            // basta envia pro back pra ve se é valido
-            // lembrar de arrumar as rotas dos paragros
-            console.table({email, password})
-
-            navigate('/');
+            const response = await api.post("/loginPerson", { email, password });
+                    
+            console.log("Login bem-sucedido:", response.data);
+      
+            navigate("/");
         }catch(error){
-            console.log(error)
+            console.log("Erro ao fazer login:", error.response?.data || error.message)
         }
     }
-
   return (
     <>
         <Main>
