@@ -12,11 +12,14 @@
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
+    "@google/generative-ai": "^0.21.0",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
     "axios": "^1.7.7",
+    "chart.js": "^4.4.6",
     "proptypes": "^1.1.0",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
     "styled-components": "^6.1.13"
@@ -26,6 +29,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "dotenv": "^16.4.5",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",

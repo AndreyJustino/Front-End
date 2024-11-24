@@ -12,19 +12,15 @@ const Main = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;
 `
 
 const Form = styled.form`
-    height: 70%;
-    width: 50vw;
+    max-width: 450px;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
-    max-width: 550px;
     display: flex;
     flex-direction: column;
-    gap: 20px
 `
 
 const Titulo = styled.h1`
@@ -38,6 +34,7 @@ const Div = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    margin: 10px 0px;
 `
 
 const Container = styled.div`
@@ -60,6 +57,7 @@ const Paragrafo = styled.p`
     display: flex;
     justify-content: end;
     cursor: pointer;
+    margin: 5px;
 `
 
 export const RegisterUser = () => {

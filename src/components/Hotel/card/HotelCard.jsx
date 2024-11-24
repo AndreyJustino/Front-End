@@ -2,21 +2,14 @@
 
 import styled from "styled-components";
 import { CardCategory } from "./CardCategory";
+import { useNavigate } from "react-router-dom";
+import Images from "../../../assets/images";
+import { CardImage } from "./CardImage";
 
 const HotelCardContainer = styled.div`
   display: flex;
 
-  /* /* width: 1220px; */
-  height: 280px;
-
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  & img {
-    width: 385px;
-    height: 280px;
-
-    object-fit: fill;
-  }
 
   & .infos-container {
     display: flex;
@@ -38,10 +31,16 @@ const HotelCardContainer = styled.div`
   & button {
     margin-left: auto;
   }
+
+  @media (max-aspect-ratio: 1) {
+    & .infos-container {
+      padding: 20px;
+    }
+  }
 `;
 
 const CardTitle = styled.h3`
-  font-size: 32px;
+  font-size: 150%;
   margin: 0;
   padding: 0;
 `;
@@ -53,7 +52,11 @@ const CardDescription = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+  }
 `;
 
 const AboutButton = styled.button`
@@ -64,22 +67,55 @@ const AboutButton = styled.button`
 
   color: var(--card-button-foreground);
   background-color: var(--card-button-background);
+  transition: scale 0.2s;
+
+  &:hover {
+    scale: 1.02;
+    cursor: pointer;
+  }
+
+  &:active {
+    scale: 1;
+  }
+
+  @media (max-aspect-ratio: 1) {
+    font-size: 15px;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+  }
 `;
 
 export function HotelCard({ hotel }) {
-  const { name, description, thumb, category } = hotel;
+  const {
+    name = "Nome não disponível",
+    description = "Descrição indisponível",
+    thumb = Images.HotelPlaceholder,
+    category,
+    stars,
+    id,
+  } = hotel;
+
+  const navigate = useNavigate();
+
+  function redirectToHotelPage(id) {
+    navigate("aboutHosting/" + id);
+  }
 
   return (
     <HotelCardContainer>
-      <div>
-        <img src={thumb} alt="" />
-      </div>
+      <CardImage imageUrl={thumb} />
       <div className="infos-container">
-        <CardTitle>{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle>{name || "Nome indisponível"}</CardTitle>
+        <CardDescription>
+          {description || "Descrição indisponível"}
+        </CardDescription>
         <CardCategory category={category} />
+        {stars ? "⭐".repeat(stars) : "Sem classificação"}
         <div className="button-container">
-          <AboutButton>Saiba Mais</AboutButton>
+          <AboutButton onClick={(_) => redirectToHotelPage(id)}>
+            Saiba Mais
+          </AboutButton>
         </div>
       </div>
     </HotelCardContainer>
