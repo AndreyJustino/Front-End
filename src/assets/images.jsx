@@ -4,6 +4,7 @@ import Coffee from './images/coffee.png'
 import Restaurant from './images/restaurant.png'
 import Wifi from './images/wifi.png'
 import Location from './images/location.png'
+import HotelPlaceholder from "./images/hotel/placeholder.jpg";
 
 const Images = {
     Logo,
@@ -11,7 +12,8 @@ const Images = {
     Coffee,
     Restaurant,
     Wifi,
-    Location
+    Location,
+    HotelPlaceholder,
 }
 
-export default Images
+export default Images;
