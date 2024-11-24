@@ -11,7 +11,7 @@ export const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/loginUser" element={<LoginUser />} />
       </Routes>
-      <Footer /> 
+      {/* <Footer />  */}
     </BrowserRouter>
   );
 };
