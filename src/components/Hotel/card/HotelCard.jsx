@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { CardCategory } from "./CardCategory";
+import { useNavigate } from "react-router-dom";
 
 const HotelCardContainer = styled.div`
   display: flex;
@@ -78,6 +79,16 @@ const AboutButton = styled.button`
 
   color: var(--card-button-foreground);
   background-color: var(--card-button-background);
+  transition: scale 0.2s;
+
+  &:hover {
+    scale: 1.02;
+    cursor: pointer;
+  }
+
+  &:active {
+    scale: 1;
+  }
 
   @media (max-aspect-ratio: 1) {
     font-size: 15px;
@@ -88,7 +99,12 @@ const AboutButton = styled.button`
 `;
 
 export function HotelCard({ hotel }) {
-  const { name, description, thumb, category } = hotel;
+  const { name, description, thumb, category, id } = hotel;
+  const navigate = useNavigate();
+
+  function redirectToHotelPage(id) {
+    navigate("aboutHosting/" + id);
+  }
 
   return (
     <HotelCardContainer>
@@ -100,7 +116,9 @@ export function HotelCard({ hotel }) {
         <CardDescription>{description}</CardDescription>
         <CardCategory category={category} />
         <div className="button-container">
-          <AboutButton>Saiba Mais</AboutButton>
+          <AboutButton onClick={(_) => redirectToHotelPage(id)}>
+            Saiba Mais
+          </AboutButton>
         </div>
       </div>
     </HotelCardContainer>
