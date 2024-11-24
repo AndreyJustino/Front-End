@@ -5,6 +5,7 @@ import { CardCategory } from "./CardCategory";
 import { useNavigate } from "react-router-dom";
 import Images from "../../../assets/images";
 import { CardImage } from "./CardImage";
+import { CardIcons } from "./CardIcons";
 
 const HotelCardContainer = styled.div`
   display: flex;
@@ -86,14 +87,33 @@ const AboutButton = styled.button`
   }
 `;
 
+// [
+//   {
+//     "key": "WI_FI",
+//     "label": "Internet"
+//   },
+//   {
+//     "key": "BREAKFAST",
+//     "label": "Café da manhã"
+//   },
+//   {
+//     "key": "PARKING",
+//     "label": "Estacionamento"
+//   },
+//   {
+//     "key": "RESTAURANT",
+//     "label": "Restaurante"
+//   }
+// ]
+
 export function HotelCard({ hotel }) {
   const {
     name = "Nome não disponível",
     description = "Descrição indisponível",
     thumb = Images.HotelPlaceholder,
     category,
-    stars,
     id,
+    amenities = [],
   } = hotel;
 
   const navigate = useNavigate();
@@ -111,7 +131,7 @@ export function HotelCard({ hotel }) {
           {description || "Descrição indisponível"}
         </CardDescription>
         <CardCategory category={category} />
-        {stars ? "⭐".repeat(stars) : "Sem classificação"}
+        <CardIcons icons={amenities} />
         <div className="button-container">
           <AboutButton onClick={(_) => redirectToHotelPage(id)}>
             Saiba Mais
