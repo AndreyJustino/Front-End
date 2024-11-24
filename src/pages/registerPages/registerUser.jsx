@@ -4,7 +4,7 @@ import { Input } from "../../components/input/input"
 import { Button } from "../../components/button/button"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
-import api from "../../services/apiSeevice.jsx"
+import api from "../../services/apiService.jsx"
 
 const Main = styled.main`
     background-color: #0597FA;
@@ -12,10 +12,11 @@ const Main = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
 `
 
 const Form = styled.form`
-    height: 90%;
+    height: 70%;
     width: 50vw;
     background-color: white;
     border-radius: 10px;
@@ -56,8 +57,8 @@ const Paragrafo = styled.p`
     color: #0077FF;
     font-size: 18px;
     font-family: var(--font-family);
-  display: flex;
-  justify-content: end;
+    display: flex;
+    justify-content: end;
     cursor: pointer;
 `
 

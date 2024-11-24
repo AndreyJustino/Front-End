@@ -5,7 +5,7 @@
     import imgUrl from "../../assets/img/fundoLoginCompanhia.png"
     import imgLogo from "../../assets/img/logoOnfly.png"
     import { useNavigate, Link } from 'react-router-dom'
-    import api from "../../services/apiSeevice.jsx"
+    import api from "../../services/apiService.jsx"
 
     const Main = styled.main`
         display: flex;

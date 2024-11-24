@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import api from '../../services/apiSeevice.jsx';
+import api from '../../services/apiService.jsx';
 import { Button } from '../../components/button/button';
 import { Input } from '../../components/input/input';
 import styled from 'styled-components';
 import { HeaderRegister } from '../../components/headerRegister/headerRegister';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
 
 const Main = styled.main`
   display: flex;
@@ -66,10 +66,13 @@ const Parag = styled.p`
 `;
 
 const Paragraf = styled.p`
-  display: flex;
-  justify-content: end;
-  font-family: 'Lato', sans-serif;
-  color: #0077FF;
+    color: #0077FF;
+    font-size: 18px;
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    text-decoration: none;
 `;
 
 export const RegisterCompany = () => {
@@ -152,9 +155,9 @@ export const RegisterCompany = () => {
             </Div>
           </Container>
 
-          <Paragraf>
-            <a href="/registerUser">Sou cliente?</a>
-          </Paragraf>
+          <Link to="/registerUser" style={{ textDecoration: 'none' }}>
+                        <Paragraf>Sou Cliente?</Paragraf>
+                    </Link>
 
           <Button text={"Cadastrar"} type={"submit"} />
         </Forms>
