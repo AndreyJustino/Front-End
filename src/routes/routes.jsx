@@ -7,7 +7,6 @@ import { RegisterCompany } from "../pages/registerPages/registerCompany.jsx";
 import { RegisterUser } from "../pages/registerPages/registerUser.jsx";
 import { AboutHosting } from "../pages/aboutHosting/aboutHosting.jsx";
 
-
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
@@ -17,7 +16,7 @@ export const AppRoutes = () => {
         <Route path="/loginCompany" element={<LoginCompany />} />
         <Route path="/registerCompany" element={<RegisterCompany/>} />
         <Route path="/registerUser" element={<RegisterUser/>} />
-        <Route path="/aboutHosting/:id" element={<AboutHosting/>} />
+        <Route path="/aboutHosting" element={<AboutHosting/>} />
       </Routes>
       {/* <Footer />  */}
     </BrowserRouter>
