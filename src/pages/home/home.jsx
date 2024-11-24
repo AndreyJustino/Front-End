@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { HotelCard } from "../../components/Hotel/card/HotelCard";
 import { useEffect, useState } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
+import { LoadingComponentInitial } from '../../components/Loading/Loading'
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
 
 const SectionLayout = styled.section`
@@ -51,8 +52,13 @@ export const Home = () => {
   const [hotels, setHotels] = useState([]);
   const [hotelsPage, setHotelsPage] = useState(1);
   const [hasMoreToLoad, setHasMoreToLoad] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const carrouselImages = hotels.slice(5, 10).map((hotel) => hotel.thumb);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000)
 
   function loadMoreHotels() {
     console.log(hotelsPage);
@@ -83,6 +89,7 @@ export const Home = () => {
 
   return (
     <HomeMain>
+      <LoadingComponentInitial isLoading={isLoading} />
       <Carrousel images={carrouselImages} />
       <label htmlFor="">Pesquisar Hotel:</label>
       <input type="text" placeholder="Glória Plaza Hotel" />
