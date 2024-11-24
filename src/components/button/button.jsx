@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const ButtonNext = styled.button`
     width: 100%;
+    margim: 0;
+    padding: 0;
     height: 40px;
     font-family: var(--font-family);
     font-size: 16px;
