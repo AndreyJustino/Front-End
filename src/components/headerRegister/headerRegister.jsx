@@ -10,7 +10,7 @@ const Header = styled.header`
 `
 
 const Moldura = styled.div`
-    height: 60px;
+    height: 40px;
     width: 60px;
 `
 
