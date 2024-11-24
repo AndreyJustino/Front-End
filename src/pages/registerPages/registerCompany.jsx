@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button } from '../../components/button/button'
 import { Input } from '../../components/input/input'
 import styled from 'styled-components'
@@ -11,30 +11,32 @@ const Main = styled.main`
     width: 100vw;
     height: 100vh;
     background-color: #0597FA;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 775px) {
+        padding: 2rem;
+    }
 `;
 
 const Forms = styled.form`
-    margin: 2rem auto;
     display: flex;
     background-color: white;
     height: 500px;
     border-radius: 10px;
     flex-direction: column;
-    gap:15px;
+    gap: 15px;
     padding: 25px;
-    min-width: 60%;
-
-    @media (min-width: 768px) {
-        min-width: 40%
-    }
+    max-width: 650px;
+    width: 100%;
+    /* min-width: 60%; */
+    justify-content: center;
 `
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 `;
-
-
 
 const Div = styled.div`
     display: flex;
@@ -52,7 +54,6 @@ const Label = styled.label`
 `
 
 const Moldura = styled.div`
-    widht: 60px;
     height: 60px;
     margin: 0 auto;
 `
@@ -94,8 +95,8 @@ export const RegisterCompany = () => {
 
     return (
       <>
-        <Main>
           <HeaderRegister/>
+        <Main>
           <Forms autoComplete="off" onSubmit={registerCompany}>
             <Moldura>
               <Parag>Cadastre sua Empresa</Parag>

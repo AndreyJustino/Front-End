@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const ButtonNext = styled.button`
     width: 100%;
-    margim: 0;
+    margin: 0;
     padding: 0;
     height: 40px;
     font-family: var(--font-family);
@@ -12,7 +12,7 @@ const ButtonNext = styled.button`
     color: white;
     background-color: #419BEE;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     cursor: pointer;
 
     &:hover{

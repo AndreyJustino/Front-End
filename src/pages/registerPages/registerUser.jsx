@@ -15,7 +15,7 @@ const Main = styled.main`
 `
 
 const Form = styled.form`
-    height: 90%;
+    height: auto;
     width: 50vw;
     background-color: white;
     border-radius: 10px;
@@ -23,6 +23,7 @@ const Form = styled.form`
     max-width: 550px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px
 `
 

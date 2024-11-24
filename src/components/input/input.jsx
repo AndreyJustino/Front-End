@@ -4,12 +4,12 @@ const InputForm = styled.input`
     display: inline;
     width: 100%;
     height: 40px;
-    margim: 0px;
+    margin: 0px;
     outline: none;
     font-size: 16px;
     padding: 10px;
     border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
     &:focus {

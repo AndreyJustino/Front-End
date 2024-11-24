@@ -21,7 +21,7 @@ const SectionImg = styled.section`
     width: 50%;
     height: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1150px) {
         display: none;
     }
 `;
@@ -31,14 +31,15 @@ const Forms = styled.form`
     display: flex;
     background-color: white;
     height: 500px;
-    border-radius: 10px;
+    border-radius: 4px;
     flex-direction: column;
     gap:15px;
     padding: 25px;
     min-width: 60%;
+    justify-content: center;
 
-    @media (min-width: 768px) {
-        min-width: 40%   
+    @media (min-width: 1150px) {
+        min-width: 40%
     }
 `
 
@@ -58,13 +59,12 @@ const Label = styled.label`
 `
 
 const Moldura = styled.div`
-    widht: 60px;
-    height: 60px;
+    width: 130px;
     margin: 0 auto;
 `
 
 const Img = styled.img`
-    widht: 100%;
+    width: 100%;
     height: 100%;
 `
 

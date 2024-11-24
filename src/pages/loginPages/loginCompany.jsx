@@ -21,7 +21,7 @@ const SectionImg = styled.section`
     width: 50%;
     height: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1150px) {
         display: none;
     }
 `;
@@ -37,7 +37,7 @@ const Forms = styled.form`
     padding: 25px;
     min-width: 60%;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1150px) {
         min-width: 40%   
     }
 `
