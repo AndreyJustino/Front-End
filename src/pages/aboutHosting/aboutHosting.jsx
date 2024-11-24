@@ -172,7 +172,7 @@ export const AboutHosting = () => {
     const [address, setAddress] = useState("R. Cel. Antônio de Carvalho , 269")
     const [categoria, setCategoria] = useState("Hotel")
     const [starts, setStart] = useState()
-    
+
     useEffect(() => {
         try{
 
@@ -181,45 +181,51 @@ export const AboutHosting = () => {
         }
     }, [])
 
+    const data = {
+            name: "Lua Nova Hotel",
+            amenities: ["Internet", "Café da manhã"]
+            // so pra teste
+    }
+
+    const amenitiesMap = {
+        "Internet": Images.Wifi,
+        "Café da manhã": Images.Coffee,
+        "Estacionamento": Images.Car,
+        // aqui vou completar os que falta
+    };
+
     return (
         <>
             <Header></Header>
             <Main style={{ backgroundImage: `url(${image})`}}>
+            {/* <Main style={{ backgroundImage: `url(${data.image})`}}> */}
                 <Overlay>
                     <CardContainer>
                         <Moldura>
                             <Img src={image} alt="Imagem de fundo"></Img>
+                            {/* <Img src={data.image} alt="Imagem de fundo"></Img> */}
                         </Moldura>
                         <Card>
                             <TittleAndStars>
                                 <Titulo>{title}</Titulo>
-                                <i className='bx bxs-star'></i>
-                                <i className='bx bxs-star'></i>
-                                {/* criar um loop pra repetir os icons de acordo com a quantidade de estrelas que tem na base de dados */}
+                                {/* <Titulo>{data.title}</Titulo> */}
                             </TittleAndStars>
                             <Paragrafo>{description}</Paragrafo>
+                            {/* <Paragrafo>{data.description}</Paragrafo> */}
                             <SubParagrafo>
                                 <Icon src={Images.Location} />{address}
+                                {/* <Icon src={Images.Location} />{data.address} */}
                             </SubParagrafo>
                             <WeOffer>
                                 <TittleWeOffer>O que oferecemos:</TittleWeOffer>
                                 <IconsWeOffer>
-                                    {/* <abbr title="Wifi"><img src={Images.Wifi} alt="" width={15}/></abbr> */}
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
+                               
+                                {data.amenities.map((amenity) => (
+                                    <Span key={amenity}>
+                                    <img src={amenitiesMap[amenity] || Images.Default} alt={amenity} width={15} />
+                                    {amenity}
+                                    </Span>
+                                ))}
                                 </IconsWeOffer>
                             </WeOffer>
                             {/* <Categoria>{categoria}</Categoria> */}

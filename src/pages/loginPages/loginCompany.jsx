@@ -4,7 +4,8 @@ import { Input } from '../../components/input/input.jsx'
 import styled from 'styled-components'
 import imgUrl from "../../assets/img/fundoLoginCompanhia.png"
 import imgLogo from "../../assets/img/logoOnfly.png"
-import { useNavigate, Link } from 'react-router-dom'
+import { LoadingOverlay } from "../../components/Loading/Loading.jsx"
+import { Link } from 'react-router-dom'
 
 const Main = styled.main`
     display: flex;
@@ -58,13 +59,13 @@ const Label = styled.label`
 `
 
 const Moldura = styled.div`
-    widht: 60px;
+    /* widht: 60px; */
     height: 60px;
     margin: 0 auto;
 `
 
 const Img = styled.img`
-    widht: 100%;
+    /* widht: 100%; */
     height: 100%;
 `
 
@@ -87,7 +88,7 @@ const SubParagrafo = styled.p`
 export const LoginCompany = () => {
     const [cnpj, setCnpj] = useState()
     const [password, setPassword] = useState()
-    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false)
 
     async function loginUser(e) {
         e.preventDefault();
@@ -95,11 +96,15 @@ export const LoginCompany = () => {
             // dados estão vindo para ca quando clicado no botão
             // basta envia pro back pra ve se é valido
             // lembrar de arrumar as rotas dos paragros
+            setIsLoading(true)
             console.table({cnpj, password})
 
-            navigate('/');
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 2000)
         }catch(error){
             console.log(error)
+            setIsLoading(false)
         }
     }
 
@@ -127,6 +132,7 @@ export const LoginCompany = () => {
                     <SubParagrafo>Não tenho cadastro</SubParagrafo>
                 </Link>
             </Forms>
+            <LoadingOverlay isLoading={isLoading} />
             <SectionImg></SectionImg>
         </Main>
         </>

@@ -29,3 +29,16 @@ export const LoaderInitial = styled.img`
   animation: ${bounceScale} 0.4s ease-in-out;
   filter: invert(1) grayscale(1) brightness(100);
 `;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+`
