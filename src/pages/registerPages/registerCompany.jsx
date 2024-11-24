@@ -40,10 +40,7 @@ const Div = styled.div`
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    // height: 60px;
-    // padding: 15px;
     gap: 10px;
-    // border: 2px solid yellow
 `
 
 const Label = styled.label`
@@ -115,7 +112,7 @@ export const RegisterCompany = () => {
             </Container>
             
             <Paragraf>
-              <a href="/login">Sou cliente?</a>
+              <a href="/registerUser">Sou cliente?</a>
             </Paragraf>
             
             <Button text={"Cadastrar"} to={"/"} />

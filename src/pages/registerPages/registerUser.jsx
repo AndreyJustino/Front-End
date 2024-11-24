@@ -55,7 +55,7 @@ const Paragrafo = styled.p`
     color: #0077FF;
     font-size: 18px;
     font-family: var(--font-family);
-    text-align: right;
+    text-align: left;
     cursor: pointer;
 `
 
@@ -90,7 +90,7 @@ export const RegisterUser = () => {
                         <Label htmlFor="telefone">Telefone:</Label>
                         <Input type={"tel"} placeholder={"(xx) xxxxx-xxxx"} id='telefone' pattern={"/^\(\d{2}\) \d{5}-\d{4}$/"}></Input>
                     </Div>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to="/registerCompany" style={{ textDecoration: 'none' }}>
                         <Paragrafo>Sou Empresa</Paragrafo>
                     </Link>
                     <Button text={"Cadastrar"} type={"submit"} to={""}></Button>

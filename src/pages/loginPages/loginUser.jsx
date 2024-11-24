@@ -120,11 +120,11 @@ export const LoginUser = () => {
                     <Label htmlFor="senha">Agora sua senha</Label>
                     <Input type="password" placeholder="Digite sua senha" id="senha" set={setPassword}/>
                 </Div>
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/loginCompany" style={{ textDecoration: 'none' }}>
                     <Paragrafo>Sou Empresa ?</Paragrafo>
                 </Link>
                 <Button text={"Vamos !"} type={"submit"}></Button>
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/registerUser" style={{ textDecoration: 'none' }}>
                     <SubParagrafo>Não tenho cadastro</SubParagrafo>
                 </Link>
             </Forms>
