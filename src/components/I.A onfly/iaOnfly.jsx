@@ -5,31 +5,29 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import RecipeReviewCard from './cardIaOnfly'; 
 
 export default function BasicSpeedDial() {
-  const [open, setOpen] = React.useState(false);
   const [showCard, setShowCard] = React.useState(false);
 
-  const handleButtonClick = () => {
-    setOpen((prevOpen) => !prevOpen);
-    if (!open) {
-      setShowCard(true); 
-    }
-  };
-
-  const handleCardClick = () => {
-    setShowCard(false);
+  const handleToggle = (e) => {
+    e.stopPropagation(); 
+    setShowCard((prevShowCard) => !prevShowCard);
   };
 
   return (
     <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 80, right: 100 }}
+        sx={{ position: 'absolute', bottom: 150, right: 100 }}
         icon={<SpeedDialIcon />}
-        open={open}
-        onClick={handleButtonClick}
-      >
-        {showCard && <RecipeReviewCard onClick={handleCardClick} />}
-      </SpeedDial>
+        onClick={handleToggle}
+      />
+      {showCard && (
+        <Box
+          onClick={(e) => e.stopPropagation()}
+          sx={{ position: 'absolute', bottom: 250, right: 100 }}
+        >
+          <RecipeReviewCard />
+        </Box>
+      )}
     </Box>
-  );
+  );  
 }

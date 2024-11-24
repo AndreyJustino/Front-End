@@ -4,50 +4,54 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Button } from '@mui/material';
+import promptGemini from '../../middleware/gemini.js';
+import logo from '../../assets/img/onflylogo.jpeg'
 
 export default function RecipeReviewCard() {
   const [messages, setMessages] = React.useState([]);
   const [userMessage, setUserMessage] = React.useState('');
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (userMessage.trim()) {
+
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: userMessage, sender: 'user' },
       ]);
-      setUserMessage(''); 
 
-      setTimeout(() => {
+      setUserMessage('');
+
+      try {
+        const response = await promptGemini(userMessage); 
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: 'Olá, como posso ajudar?', sender: 'bot' },
-          { text: 'Sou uma I.A da onfly feita para te ajudar', sender: 'bot' },
-          { text: 'Qual é sua duvida?', sender: 'bot' },
+          { text: response, sender: 'bot' },
         ]);
-      }, 1000);
+      } catch (error) {
+        console.error('Erro ao obter resposta do modelo:', error);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: 'Desculpe, ocorreu um erro ao processar sua mensagem.', sender: 'bot' },
+        ]);
+      }
     }
   };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: '#0597FA' }} aria-label="recipe">
-            I.A
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="OnFly Chat"
-        subheader="Bem-vindo ao chat!"
-      />
+<CardHeader
+  avatar={<img src={logo} alt="OnFly Logo" style={{ width: 40, height: 40, borderRadius: '50%' }} />}
+  action={
+    <IconButton aria-label="settings">
+      <MoreVertIcon />
+    </IconButton>
+  }
+  title="OnFly Chat"
+  subheader="Bem-vindo ao chatOnfly!"
+/>
 
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: 2 }}>
@@ -79,7 +83,6 @@ export default function RecipeReviewCard() {
             </div>
           ))}
         </div>
-
 
         <TextField
           label="Digite sua mensagem"
