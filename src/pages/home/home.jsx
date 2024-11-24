@@ -78,11 +78,7 @@ export const Home = () => {
   const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
-  const carrouselImages = hotels
-    .slice(0, 5)
-    .filter((hotel) => hotel.thumb)
-    .map((hotel) => hotel.thumb);
+  const [carrouselImages, setCarrouselImages] = useState([]);
 
   const fetchHotels = useCallback(async () => {
     try {
@@ -93,6 +89,14 @@ export const Home = () => {
 
       setHotels((prev) => [...prev, ...data]);
       if (data.length < NUMBER_OF_HOTELS) setHasMore(false);
+
+      if (carrouselImages.length === 0) {
+        const images = data
+          .slice(0, 5)
+          .filter((hotel) => hotel.thumb)
+          .map((hotel) => hotel.thumb);
+        setCarrouselImages(images);
+      }
     } catch (error) {
       console.error("Error fetching hotels:", error);
     }
