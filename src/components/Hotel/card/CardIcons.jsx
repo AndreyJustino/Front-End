@@ -48,7 +48,7 @@ const CardIcon = styled.img`
 export function CardIcons({ icons }) {
   return (
     <IconsContainer>
-      {icons.map((icon, index) => (
+      {icons?.map((icon, index) => (
         <CardIcon key={index} src={iconsDict[icon.key]} />
       ))}
     </IconsContainer>
