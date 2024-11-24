@@ -21,7 +21,7 @@ const ButtonNext = styled.button`
     }
 `
 
-export const Button = ({text, to}) => {
+export const Button = ({text, to, type}) => {
 
     const navigate = useNavigate();
 
@@ -30,6 +30,6 @@ export const Button = ({text, to}) => {
     };
 
     return (
-        <ButtonNext onClick={handleClick}>{text}</ButtonNext>
+        <ButtonNext onClick={handleClick} type={type}>{text}</ButtonNext>
     )
 }
