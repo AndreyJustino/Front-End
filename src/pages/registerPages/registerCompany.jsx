@@ -5,11 +5,12 @@ import { Input } from '../../components/input/input';
 import styled from 'styled-components';
 import { HeaderRegister } from '../../components/headerRegister/headerRegister';
 import { useNavigate , Link } from 'react-router-dom';
+import BasicSpeedDial from '../../components/I.A onfly/iaOnfly.jsx';
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  // width: 100vw;
   height: 100vh;
   background-color: #0597FA;
 `;
@@ -113,8 +114,8 @@ export const RegisterCompany = () => {
 
   return (
     <>
+      <HeaderRegister />
       <Main>
-        <HeaderRegister />
         <Forms autoComplete="off" onSubmit={registerCompany}>
           <Moldura>
             <Parag>Cadastre sua Empresa</Parag>
@@ -161,6 +162,9 @@ export const RegisterCompany = () => {
 
           <Button text={"Cadastrar"} type={"submit"} />
         </Forms>
+
+        
+      <BasicSpeedDial/>
       </Main>
     </>
   );

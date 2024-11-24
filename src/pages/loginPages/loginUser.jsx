@@ -36,10 +36,10 @@ const Forms = styled.form`
     flex-direction: column;
     gap:15px;
     padding: 25px;
-    min-width: 60%;
+    min-width: 75%;
 
     @media (min-width: 768px) {
-        min-width: 40%   
+        min-width: 35%   
     }
 `
 
