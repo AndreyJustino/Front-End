@@ -105,7 +105,7 @@ export const RegisterCompany = () => {
       });
 
       console.log('Company registered:', response.data);
-      navigate('/'); 
+      navigate('/loginCompany'); 
     } catch (error) {
       console.error('Error registering company:', error);
     }

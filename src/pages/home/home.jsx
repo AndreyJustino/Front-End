@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
 import { LoadingComponentInitial } from '../../components/Loading/Loading'
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
+import Footer from "../../components/footer/footer";
 
 const SectionLayout = styled.section`
   display: grid;
@@ -111,6 +112,7 @@ export const Home = () => {
           {hasMoreToLoad && <LoadMoreButton onclick={loadMoreHotels} />}
         </HotelsContainer>
       </SectionLayout>
+      <Footer />
     </HomeMain>
   );
 };

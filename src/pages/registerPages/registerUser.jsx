@@ -83,7 +83,7 @@ export const RegisterUser = () => {
 
             if (response.status === 201) {
                 console.log('User registered:', response.data)
-                navigate("/")
+                navigate("/loginUser")
             } else {
                 console.error('Failed to register:', response.data.message)
             }

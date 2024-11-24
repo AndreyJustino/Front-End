@@ -1,101 +1,106 @@
-import { Box, Grid, Typography, IconButton } from "@mui/material";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import styled from 'styled-components';
+import logoBranca from '../../assets/img/logoBranca.png'; 
+import facebook from '../../assets/icon/facebook.png';
+import instagram from '../../assets/icon/instagram.png';
+import linkedin from '../../assets/icon/linkedin.png';
+import youtube from '../../assets/icon/youtube.png';
+import tiktok from '../../assets/icon/tiktok.png';
 
-export const Footer = () => {
+
+
+const StyledFooter = styled.footer`
+  background-color: #519AFF;
+  padding: 20px 0;
+  color: white;
+`;
+
+const FooterBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const FooterSection = styled.div`
+  flex: 1;
+  padding: 0 20px;
+`;
+
+const SocialIconsWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
+const SocialIconLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; 
+  height: 48px;
+  background-color: transparent;
+  border: 2px solid white; 
+  border-radius: 8px; 
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: white;
+    transform: scale(1.1); 
+    border-color: #519aff;
+  }
+
+  img {
+    width: 24px; 
+    height: 24px;
+  }
+
+  &:focus {
+    outline: 2px solid #519aff;
+    outline-offset: 4px;
+  }
+`;
+
+const Logo = styled.img`
+  width: 150px;
+  height: auto;
+`;
+
+export  const Footer = () => {
+ 
   return (
-    <Box
-      component="footer"
-      sx={{
-        backgroundColor: "#f8f9fa",
-        color: "black",
-        padding: "20px",
-      }}
-    >
-      <Grid container spacing={2}>
-        {/* Social Icons Section */}
-        <Grid item xs={12} md={6}>
-          <Box display="flex" alignItems="center" justifyContent="center" height="100%">
-            <Box>
-              <IconButton
-                href="https://twitter.com"
-                target="_blank"
-                sx={{
-                  "&:hover": { color: "#1DA1F2" },
-                }}
-              >
-                <TwitterIcon fontSize="large" />
-              </IconButton>
-              <IconButton
-                href="https://linkedin.com"
-                target="_blank"
-                sx={{
-                  "&:hover": { color: "#0077B5" },
-                }}
-              >
-                <LinkedInIcon fontSize="large" />
-              </IconButton>
-              <IconButton
-                href="https://github.com"
-                target="_blank"
-                sx={{
-                  "&:hover": { color: "#333" },
-                }}
-              >
-                <GitHubIcon fontSize="large" />
-              </IconButton>
-              <IconButton
-                href="https://facebook.com"
-                target="_blank"
-                sx={{
-                  "&:hover": { color: "#1877F2" },
-                }}
-              >
-                <FacebookIcon fontSize="large" />
-              </IconButton>
-            </Box>
-          </Box>
-        </Grid>
-
-        {/* Information Section */}
-        <Grid item xs={12} md={6}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                About
-              </Typography>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                Features
-              </Typography>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                Support
-              </Typography>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                Community
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                contact@contactUs.com
-              </Typography>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                support@contactUs.com
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                Terms & Conditions
-              </Typography>
-              <Typography variant="body2" fontSize="large" fontWeight="bold">
-                Privacy Policy
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Box>
+    <StyledFooter>
+      <FooterBox>
+        <FooterSection>
+          <Logo src={logoBranca} alt="Logo Onfly" />
+          <SocialIconsWrapper>
+            <SocialIconLink href="https://www.facebook.com/onfly.travel" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="Facebook" /></SocialIconLink>
+            <SocialIconLink href="https://www.instagram.com/onfly.travel/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="Instagram" /></SocialIconLink>
+            <SocialIconLink href="https://www.linkedin.com/company/onfly/" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></SocialIconLink>
+            <SocialIconLink href="https://www.youtube.com/@onfly.travel" target="_blank" rel="noopener noreferrer"><img src={youtube} alt="YouTube" /></SocialIconLink>
+            <SocialIconLink href="https://www.tiktok.com/@onfly.travel" target="_blank" rel="noopener noreferrer"><img src={tiktok} alt="TikTok" /></SocialIconLink>
+          </SocialIconsWrapper>
+        </FooterSection>
+        <FooterSection>
+          <h6>Institucional</h6>
+          <p>Institucional </p>
+          <p>Trabalhe conosco</p>          
+        </FooterSection>
+        <FooterSection>
+          <h6>Escritórios</h6>
+          <p>Situado a 250 m pela saída lateral do Terminal Rodoviário Tietê...</p>
+        </FooterSection>
+        <FooterSection>
+          <h6>Suporte</h6>
+          <p>Institucional institucional</p>
+        </FooterSection>
+      </FooterBox>
+      <div style={{ textAlign: 'center', marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.3)' }}>
+        <p style={{ fontSize: '14px' }}>
+          Copyright © 2024 Onfly. Feito com muito ❤️ e carinho no San Pedro Valley
+        </p>
+      </div>
+    </StyledFooter>
   );
 };
 
