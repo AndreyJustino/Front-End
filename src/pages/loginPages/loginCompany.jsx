@@ -89,10 +89,24 @@ export const LoginCompany = () => {
     const [password, setPassword] = useState()
     const navigate = useNavigate();
 
+    async function loginUser(e) {
+        e.preventDefault();
+        try{
+            // dados estão vindo para ca quando clicado no botão
+            // basta envia pro back pra ve se é valido
+            // lembrar de arrumar as rotas dos paragros
+            console.table({cnpj, password})
+
+            navigate('/');
+        }catch(error){
+            console.log(error)
+        }
+    }
+
     return(
         <>
             <Main>
-            <Forms autoComplete='off' onSubmit={""}>
+            <Forms autoComplete='off' onSubmit={loginUser}>
                 <Moldura>
                     <Img src={imgLogo}></Img>
                 </Moldura>
