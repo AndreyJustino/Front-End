@@ -3,21 +3,13 @@
 import styled from "styled-components";
 import { CardCategory } from "./CardCategory";
 import { useNavigate } from "react-router-dom";
+import Images from "../../../assets/images";
+import { CardImage } from "./CardImage";
 
 const HotelCardContainer = styled.div`
   display: flex;
 
-  /* /* width: 1220px; */
-  /* height: 280px; */
-
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  & img {
-    width: 385px;
-    height: 280px;
-
-    object-fit: fill;
-  }
 
   & .infos-container {
     display: flex;
@@ -41,10 +33,6 @@ const HotelCardContainer = styled.div`
   }
 
   @media (max-aspect-ratio: 1) {
-    & img {
-      display: none;
-    }
-
     & .infos-container {
       padding: 20px;
     }
@@ -99,7 +87,15 @@ const AboutButton = styled.button`
 `;
 
 export function HotelCard({ hotel }) {
-  const { name, description, thumb, category, id } = hotel;
+  const {
+    name = "Nome não disponível",
+    description = "Descrição indisponível",
+    thumb = Images.HotelPlaceholder,
+    category,
+    stars,
+    id,
+  } = hotel;
+
   const navigate = useNavigate();
 
   function redirectToHotelPage(id) {
@@ -108,13 +104,14 @@ export function HotelCard({ hotel }) {
 
   return (
     <HotelCardContainer>
-      <div>
-        <img src={thumb} alt="" />
-      </div>
+      <CardImage imageUrl={thumb} />
       <div className="infos-container">
-        <CardTitle>{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle>{name || "Nome indisponível"}</CardTitle>
+        <CardDescription>
+          {description || "Descrição indisponível"}
+        </CardDescription>
         <CardCategory category={category} />
+        {stars ? "⭐".repeat(stars) : "Sem classificação"}
         <div className="button-container">
           <AboutButton onClick={(_) => redirectToHotelPage(id)}>
             Saiba Mais

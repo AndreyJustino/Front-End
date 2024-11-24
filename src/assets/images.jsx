@@ -1,7 +1,9 @@
-import Logo from './images/logo.webp'
+import Logo from "./images/logo.webp";
+import HotelPlaceholder from "./images/hotel/placeholder.jpg";
 
 const Images = {
-    Logo
-}
+  Logo,
+  HotelPlaceholder,
+};
 
-export default Images
+export default Images;
