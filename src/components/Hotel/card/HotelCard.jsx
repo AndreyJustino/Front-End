@@ -14,6 +14,8 @@ const HotelCardContainer = styled.div`
   & img {
     width: 385px;
     height: 280px;
+
+    object-fit: fill;
   }
 
   & .infos-container {
@@ -25,7 +27,7 @@ const HotelCardContainer = styled.div`
 
     flex-grow: 1;
 
-    padding: 50px;
+    padding: 40px;
   }
 
   & .button-container {
@@ -69,7 +71,9 @@ export function HotelCard({ hotel }) {
 
   return (
     <HotelCardContainer>
-      <img src={thumb} alt="" />
+      <div>
+        <img src={thumb} alt="" />
+      </div>
       <div className="infos-container">
         <CardTitle>{name}</CardTitle>
         <CardDescription>{description}</CardDescription>
