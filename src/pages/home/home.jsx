@@ -4,10 +4,9 @@ import { useEffect, useState, useCallback } from "react";
 import { LoadMoreButton } from "../../components/Hotel/LoadMoreButton";
 import { LoadingComponentInitial } from "../../components/Loading/Loading";
 import { Carrousel } from "../../components/Hotel/carrousel/Carrousel";
-<<<<<<< HEAD
-import Footer from "../../components/footer/footer";
-=======
 import BasicSpeedDial from "../../components/I.A onfly/iaOnfly";
+import { Footer } from "../../components/footer/footer";
+import { Header } from "../../components/header/header";
 
 const HomeMain = styled.main`
   display: flex;
@@ -25,7 +24,6 @@ const HomeMain = styled.main`
     padding: 20px;
   }
 `;
->>>>>>> e285eb4a0b78d6c83a88f219cb7ae8ece68ec952
 
 const SectionLayout = styled.section`
   display: grid;
@@ -128,7 +126,9 @@ export const Home = () => {
   };
 
   return (
-    <HomeMain>
+    < >
+    <Header/>
+     <HomeMain>
       <LoadingComponentInitial isLoading={isLoading} />
       <Carrousel images={carrouselImages} />
       <label htmlFor="hotel-search">Pesquisar Hotel:</label>
@@ -158,14 +158,10 @@ export const Home = () => {
           {hasMore && <LoadMoreButton onclick={handleLoadMore} />}
         </HotelsContainer>
       </SectionLayout>
-<<<<<<< HEAD
-      <Footer />
-    </HomeMain>
-  );
-=======
-<BasicSpeedDial/>
+    <BasicSpeedDial/>
       </HomeMain>
+      <Footer/>
+     </>
   
 );
->>>>>>> e285eb4a0b78d6c83a88f219cb7ae8ece68ec952
 };

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import logoBranca from '../../assets/img/logoBranca.png'; 
-import facebook from '../../assets/icon/facebook.png';
-import instagram from '../../assets/icon/instagram.png';
-import linkedin from '../../assets/icon/linkedin.png';
-import youtube from '../../assets/icon/youtube.png';
-import tiktok from '../../assets/icon/tiktok.png';
+import facebook from '../../assets/images/facebook.png';
+import instagram from '../../assets/images/instagram.png';
+import linkedin from '../../assets/images/linkedin.png';
+import youtube from '../../assets/images/youtube.png';
+import tiktok from '../../assets/images/tiktok.png';
 
 
 
