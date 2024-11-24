@@ -9,7 +9,7 @@ import { useNavigate , Link } from 'react-router-dom';
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  // width: 100vw;
   height: 100vh;
   background-color: #0597FA;
 `;
@@ -113,8 +113,8 @@ export const RegisterCompany = () => {
 
   return (
     <>
+      <HeaderRegister />
       <Main>
-        <HeaderRegister />
         <Forms autoComplete="off" onSubmit={registerCompany}>
           <Moldura>
             <Parag>Cadastre sua Empresa</Parag>
