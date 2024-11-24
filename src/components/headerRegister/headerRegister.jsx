@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import imgLogo from "../../assets/img/logoOnfly.png"
+import { Link } from "react-router-dom"
 
 const Header = styled.header`
     background-color: white;
@@ -24,9 +25,11 @@ export const HeaderRegister = () => {
     return (
         <>
             <Header>
-                <Moldura>
-                    <Logo src={imgLogo}></Logo>
-                </Moldura>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Moldura>
+                        <Logo src={imgLogo}></Logo>
+                    </Moldura>
+                </Link>
             </Header>
         </>
     )
