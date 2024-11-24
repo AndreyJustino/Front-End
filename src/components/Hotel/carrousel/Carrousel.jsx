@@ -12,13 +12,15 @@ const ImagesContainer = styled.div`
   gap: 20px;
 
   flex-wrap: nowrap;
-  place-items: center;
 
   & div {
     height: 230px;
-    flex-grow: 1;
-  }
+    width: 350px;
 
+    outline: none;
+    background: none;
+  }
+  /* 
   & div:nth-child(1),
   & div:nth-child(5) {
     height: 180px;
@@ -27,13 +29,13 @@ const ImagesContainer = styled.div`
   & div:nth-child(2),
   & div:nth-child(4) {
     height: 200px;
-  }
+  } */
 
   & img {
     width: 100%;
     height: 100%;
 
-    background-size: fill;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
   }

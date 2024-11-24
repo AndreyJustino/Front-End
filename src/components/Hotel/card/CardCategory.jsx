@@ -4,7 +4,7 @@ const CategorySpan = styled.span`
   padding: 10px 20px;
   border-radius: 5px;
 
-  background-color: ${({ bgColor }) => bgColor || "blue"};
+  background-color: ${({ bgcolor }) => bgcolor || "blue"};
 
   text-transform: capitalize;
   margin-right: auto;
@@ -21,13 +21,13 @@ const categoriesColors = {
   "hostel ou albergue": "#fce8c4",
   resort: "#d7ecc5",
   "hotel fazenda": "#f5d9a1",
-  "pousada ou flat/apart hotel": "#e5c9f9",
+  "flat/apart hotel": "#e5c9f9",
 };
 
 // eslint-disable-next-line react/prop-types
 export function CardCategory({ category }) {
   return (
-    <CategorySpan bgColor={categoriesColors[category.toLowerCase()]}>
+    <CategorySpan bgcolor={categoriesColors[category.toLowerCase()]}>
       {category}
     </CategorySpan>
   );
