@@ -60,7 +60,7 @@ const Label = styled.label`
 `;
 
 const Moldura = styled.div`
-    width: 60px;
+    width: 150px;
     height: 60px;
     margin: 0 auto;
 `;
@@ -96,8 +96,6 @@ export const LoginUser = () => {
         try {
             const response = await api.post("/loginPerson", { email, password });
 
-            // console.log("Login bem-sucedido:", response.data);
-
             Cookies.set("auth", response.data.token)
 
             navigate("/");
@@ -112,9 +110,12 @@ export const LoginUser = () => {
             <Main>
                 <SectionImg></SectionImg>
                 <Forms autoComplete='off' onSubmit={loginUser}>
-                    <Moldura>
-                        <Img src={imgLogo}></Img>
-                    </Moldura>
+                    <Link to="/">
+                        <Moldura>
+                            <Img src={imgLogo}></Img>
+                        </Moldura>
+                    </Link>    
+                    
                     <Div>
                         <Label htmlFor="email">Qual seu e-mail ?</Label>
                         <Input type="email" placeholder="Digite seu E-mail" id="email" set={setEmail} />

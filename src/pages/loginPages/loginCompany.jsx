@@ -60,7 +60,7 @@ const Label = styled.label`
 `;
 
 const Moldura = styled.div`
-    width: 60px;
+    width: 150px;
     height: 60px;
     margin: 0 auto;
 `;
@@ -111,9 +111,13 @@ export const LoginCompany = () => {
         <>
             <Main>
                 <Forms autoComplete='off' onSubmit={loginUser}>
-                    <Moldura>
-                        <Img src={imgLogo}></Img>
-                    </Moldura>
+                    <Link to="/">
+                        <Moldura>
+                            <Img src={imgLogo}></Img>
+                        </Moldura>
+                    </Link>
+
+                    
                     <Div>
                         <Label htmlFor="cnpj">Qual seu CNPJ ?</Label>
                         <Input type="text" placeholder="Digite seu CNPJ" id="cnpj" set={setCnpj} />
