@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Images from "../../../assets/images";
+import Images from "../../../assets/images/";
 
 // [
 //   {
@@ -42,6 +42,8 @@ const iconsDict = {
   MICROWAVE: Images.Microware,
   SAFE: Images.Safe,
   STEAM_ROOM: Images.SteamRoom,
+  ALLOWS_ANIMALS: Images.Animals,
+  BAR  : Images.Bar,
 
 };
 
@@ -63,3 +65,5 @@ export function CardIcons({ icons }) {
     </IconsContainer>
   );
 }
+
+export default iconsDict;

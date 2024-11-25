@@ -14,6 +14,8 @@ import AirConditioning from "./images/air-conditioning.png";
 import Microware from "./images/microware.png";
 import Safe from "./images/safe.png";
 import SteamRoom from "./images/stream-room.png";
+import Animals from "./images/animals.png";
+import Bar from "./images/bar.png";
 
 const Images = {
     Logo,
@@ -31,7 +33,9 @@ const Images = {
     AirConditioning,
     Microware,
     Safe,
-    SteamRoom
+    SteamRoom,
+    Animals,
+    Bar
 }
 
 export default Images;

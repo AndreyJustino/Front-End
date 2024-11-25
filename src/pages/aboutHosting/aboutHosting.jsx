@@ -3,6 +3,7 @@ import { Header } from "../../components/header/header"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Images from '../../assets/images'
+import iconsDict from '../../components/Hotel/card/CardIcons'
 
 const Main = styled.main`
     width: 100vw;
@@ -170,6 +171,7 @@ export const AboutHosting = () => {
     const [address, setAddress] = useState("")
     const [categoria, setCategoria] = useState("")
     const [starts, setStart] = useState()
+    const [amenities, setAmenities] = useState([]);
     
     useEffect(async ()  => {
         const fetchData = async () => {
@@ -192,8 +194,28 @@ export const AboutHosting = () => {
         setTitle(data.data.name)
         setDescription(data.data.description)
         setAddress(data.data.address)
+        setAmenities(data.data.amenities);
     }, []); 
-    
+
+    console.log(amenities)
+
+    const amenitiesMapping = {
+        "Internet": "WI_FI",
+        "Café da manhã": "BREAKFAST",
+        "Estacionamento": "PARKING",
+        "Restaurante": "RESTAURANT",
+        "Lavanderia": "LAUNDRY",
+        "Piscina": "POOL",
+        "Academia": "FITNESS_CENTER",
+        "Ar condicionado": "AIR_CONDITIONING",
+        "Micro-ondas": "MICROWAVE",
+        "Cofre": "SAFE",
+        "Serviço de quarto": "ROOM_SERVICE",
+        "Sala para Reuniões / Eventos": "MEETING_ROOM",
+        "Sauna": "STEAM_ROOM",
+        "Aceita animais de estimação": "ALLOWS_ANIMALS",
+        "Bar": "BAR",
+      };
 
     return (
         <>
@@ -218,14 +240,21 @@ export const AboutHosting = () => {
                             <WeOffer>
                                 <TittleWeOffer>O que oferecemos:</TittleWeOffer>
                                 <IconsWeOffer>
-                                    {/* <abbr title="Wifi"><img src={Images.Wifi} alt="" width={15}/></abbr> */}
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                </IconsWeOffer>
+                                    {amenities.map((amenity) => {
+                                        const iconKey = amenitiesMapping[amenity] || amenity;
+                                        return (
+                                        <Span key={amenity}>
+                                            <img
+                                            src={iconsDict[iconKey] || Images.Default}
+                                            alt={amenity}
+                                            width={15}
+                                            />
+                                            {amenity}
+                                        </Span>
+                                        );
+                                    })}
+                                    </IconsWeOffer>
                             </WeOffer>
-                            {/* <Categoria>{categoria}</Categoria> */}
                             <Div>
                                 <ButtonHire>ALUGAR</ButtonHire>
                             </Div>
