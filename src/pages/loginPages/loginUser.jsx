@@ -6,6 +6,7 @@ import imgUrl from "../../assets/img/fundoLoginUsuario.png";
 import imgLogo from "../../assets/img/logoOnfly.png";
 import { useNavigate, Link } from 'react-router-dom';
 import api from "../../services/apiService.jsx";
+import Cookies from 'js-cookie';
 
 const Main = styled.main`
     display: flex;
@@ -95,8 +96,11 @@ export const LoginUser = () => {
         try {
             const response = await api.post("/loginPerson", { email, password });
 
-            console.log("Login bem-sucedido:", response.data);
-            navigate("/home");
+            // console.log("Login bem-sucedido:", response.data);
+
+            Cookies.set("auth", response.data.token)
+
+            navigate("/");
         } catch (error) {
             console.log("Erro ao fazer login:", error.response?.data || error.message);
             alert('Erro: E-mail ou senha incorretos');
