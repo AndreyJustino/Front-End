@@ -20,16 +20,31 @@ const FooterBox = styled.div`
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
+
+   @media (max-width: 768px) {
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
 `;
 
 const FooterSection = styled.div`
   flex: 1;
   padding: 0 20px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px; 
+    text-align: center; 
+    padding: 0 10px;
+  }
 `;
 
 const SocialIconsWrapper = styled.div`
   display: flex;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    justify-content: center; 
+  }
 `;
 
 const SocialIconLink = styled.a`
@@ -64,6 +79,10 @@ const SocialIconLink = styled.a`
 const Logo = styled.img`
   width: 150px;
   height: auto;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px; 
+  }
 `;
 
 export  const Footer = () => {
