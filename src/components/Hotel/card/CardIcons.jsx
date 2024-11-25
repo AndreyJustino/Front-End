@@ -33,6 +33,16 @@ const iconsDict = {
   BREAKFAST: Images.Coffee,
   PARKING: Images.Car,
   RESTAURANT: Images.Restaurant,
+  ROOM_SERVICE: Images.RomService,
+  MEETING_ROOM: Images.MeetingRoom,
+  LAUNDRY: Images.Laundry,
+  POOL: Images.Pool,
+  FITNESS_CENTER: Images.FitnessCenter,
+  AIR_CONDITIONING: Images.AirConditioning,
+  MICROWAVE: Images.Microware,
+  SAFE: Images.Safe,
+  STEAM_ROOM: Images.SteamRoom,
+
 };
 
 const IconsContainer = styled.div`
