@@ -22,7 +22,7 @@ const Cabecalho = styled.header`
 `
 
 const Moldura = styled.div`
-    width: 90px;
+    width: 140px;
 `
 
 const Logo = styled.img`
