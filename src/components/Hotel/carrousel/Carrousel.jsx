@@ -8,7 +8,7 @@ const CarrouselContainer = styled.div`
   gap: 10px;
 
   @media (max-width: 1366px) {
-    width: calc(100vw - 40px);
+    width: calc(100vw - 50px);
   }
 `;
 

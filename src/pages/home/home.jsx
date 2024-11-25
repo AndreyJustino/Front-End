@@ -87,9 +87,8 @@ const Search = styled.label`
 
 const HotelSearch = styled.input`
   padding: 10px;
-  /* border: 1px solid var(--card-button-background); */
   border: none;
-  width: 15vw;
+  width: 100%;
   height: 50px;
   border-radius: 4px;
   font-size: 1.1rem;
@@ -104,8 +103,6 @@ const HotelSearch = styled.input`
 const CategorySelect = styled.select`
   padding: 10px;
   font-size: 1.1rem;
-  /* border: 1px solid var(--card-button-background);
-   */
   border: none;
   height: 50px;
   border-radius: 4px;
@@ -138,7 +135,7 @@ export const Home = () => {
 
       if (carrouselImages.length === 0) {
         const images = data
-          .slice(0, 5)
+          .slice(0, 4)
           .filter((hotel) => hotel.thumb)
           .map((hotel) => hotel.thumb);
         setCarrouselImages(images);
