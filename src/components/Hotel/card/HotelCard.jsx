@@ -9,15 +9,15 @@ import { CardIcons } from "./CardIcons";
 
 const HotelCardContainer = styled.div`
   display: flex;
-
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   & .infos-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    background: var(--card-background);
+    background: #edf2fa;
 
     flex-grow: 1;
 
@@ -61,19 +61,18 @@ const CardDescription = styled.p`
 `;
 
 const AboutButton = styled.button`
-  padding: 15px 30px;
+font-size: 1.2rem;
+font-weight: 600;
+  padding: 20px 0px;
+  width: 180px;
 
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
 
   color: var(--card-button-foreground);
   background-color: var(--card-button-background);
   transition: scale 0.2s;
-
-  &:hover {
-    scale: 1.02;
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   &:active {
     scale: 1;
