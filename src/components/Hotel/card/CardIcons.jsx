@@ -41,8 +41,7 @@ const IconsContainer = styled.div`
 `;
 
 const CardIcon = styled.img`
-  width: 25px;
-  height: 25px;
+  width: 30px;
 `;
 
 export function CardIcons({ icons }) {

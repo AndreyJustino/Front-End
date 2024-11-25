@@ -6,12 +6,16 @@ import linkedin from '../../assets/images/linkedin.png';
 import youtube from '../../assets/images/youtube.png';
 import tiktok from '../../assets/images/tiktok.png';
 
-
-
 const StyledFooter = styled.footer`
   background-color: #519AFF;
   padding: 20px 0;
+  height: 400px;
   color: white;
+  border: red solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FooterBox = styled.div`
@@ -19,6 +23,7 @@ const FooterBox = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   max-width: 1200px;
+  /* border: red solid; */
   margin: 0 auto;
 
    @media (max-width: 768px) {

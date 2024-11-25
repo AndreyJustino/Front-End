@@ -10,10 +10,16 @@ import { Header } from "../../components/header/header";
 
 const HomeMain = styled.main`
   display: flex;
+  background-color: #F4F8FF;
   flex-direction: column;
   gap: 20px;
   font-family: var(--font-family);
   padding: 20px 150px;
+
+  & hr {
+    margin: 15px 0 0 0;
+    border-top: #cad9f3;
+  }
 
   & input {
     padding: 10px;
@@ -46,6 +52,13 @@ const HotelsContainer = styled.div`
   @media (max-aspect-ratio: 1) {
     gap: 30px;
   }
+
+  & p {
+    font-size: 1.5rem;
+    /* border: red solid; */
+    font-weight: 600;
+    color: #192A3D;
+  }
 `;
 
 const FilterContainer = styled.div`
@@ -53,22 +66,53 @@ const FilterContainer = styled.div`
   flex-direction: column;
   gap: 10px;
 
+  & label {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
   & select {
     margin-bottom: auto;
+
     padding: 10px;
   }
 `;
 
+const Search = styled.label`
+  font-size: 1.5rem;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #192A3D;
+`
+
 const HotelSearch = styled.input`
   padding: 10px;
-  border: 1px solid var(--card-button-background);
-  border-radius: 5px;
+  /* border: 1px solid var(--card-button-background); */
+  border: none;
+  width: 15vw;
+  height: 50px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+
+  &:focus {
+    outline: none;
+    background-color: #b8deff;
+    transition: 1s ease-in-out;
+  }
 `;
 
 const CategorySelect = styled.select`
   padding: 10px;
-  border: 1px solid var(--card-button-background);
-  border-radius: 5px;
+  font-size: 1.1rem;
+  /* border: 1px solid var(--card-button-background);
+   */
+  border: none;
+  height: 50px;
+  border-radius: 4px;
+
+  & option {
+    font-size: 1.2rem;
+  }
 `;
 
 const NUMBER_OF_HOTELS = 10;
@@ -135,7 +179,8 @@ export const Home = () => {
      <HomeMain>
       <LoadingComponentInitial isLoading={isLoading} />
       <Carrousel images={carrouselImages} />
-      <label htmlFor="hotel-search">Pesquisar Hotel:</label>
+      <hr />
+      <Search htmlFor="hotel-search">Pesquisar Hotel:</Search>
       <HotelSearch
         id="hotel-search"
         onChange={handleSearchChange}
@@ -156,6 +201,7 @@ export const Home = () => {
           </CategorySelect>
         </FilterContainer>
         <HotelsContainer>
+        <p>Resultados</p>
           {hotels.map((hotel) => (
             <HotelCard key={hotel.id} hotel={hotel} />
           ))}
