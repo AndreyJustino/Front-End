@@ -223,17 +223,6 @@ export const AboutHosting = () => {
                                     <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
                                     <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
                                     <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Wifi} alt="" width={15}/>Wifi</Span>
-                                    <Span><img src={Images.Restaurant} alt="" width={15}/>Restaurante</Span>
-                                    <Span><img src={Images.Car} alt="" width={15}/>Estacionamento</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
-                                    <Span><img src={Images.Coffee} alt="" width={15}/>Café da manhã</Span>
                                 </IconsWeOffer>
                             </WeOffer>
                             {/* <Categoria>{categoria}</Categoria> */}
