@@ -55,7 +55,7 @@ export default function RecipeReviewCard() {
 
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: 2 }}>
-          Fale comigo! Eu sou a inteligência artificial da Onfly.
+        Olá! Eu sou a inteligência artificial da Onfly. Precisa de ajuda com hotéis, hostels, pousadas ou qualquer outra informação relacionada?
         </Typography>
 
         <div style={{ maxHeight: 300, overflowY: 'auto', marginBottom: 10 }}>

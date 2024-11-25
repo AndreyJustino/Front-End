@@ -7,6 +7,8 @@ import imgLogo from "../../assets/img/logoOnfly.png";
 import { useNavigate, Link } from 'react-router-dom';
 import api from "../../services/apiService.jsx";
 import Cookies from 'js-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Main = styled.main`
     display: flex;
@@ -97,17 +99,18 @@ export const LoginUser = () => {
             const response = await api.post("/loginPerson", { email, password });
 
             Cookies.set("auth", response.data.token)
-
+            toast.success('Sucesso: login bem sucedido');
             navigate("/");
         } catch (error) {
             console.log("Erro ao fazer login:", error.response?.data || error.message);
-            alert('Erro: E-mail ou senha incorretos');
+           toast.error('Erro: E-mail ou senha incorretos');
         }
     }
 
     return (
         <>
             <Main>
+             <ToastContainer></ToastContainer>
                 <SectionImg></SectionImg>
                 <Forms autoComplete='off' onSubmit={loginUser}>
                     <Link to="/">
