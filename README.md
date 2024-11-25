@@ -108,7 +108,15 @@ Acesse o diretório do projeto e instale as dependências necessárias com o npm
     npm install
     ```
 
-### 3. Rodar o Servidor de Desenvolvimento
+### 3. Configurar as Variáveis de Ambiente
+
+Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente:
+
+  ```bash
+  VITE_REACT_APP_API_KEY=sua-chave-api-gemini
+  ```
+
+### 4. Rodar o Servidor de Desenvolvimento
 
 Inicie o servidor de desenvolvimento com o comando:
 
