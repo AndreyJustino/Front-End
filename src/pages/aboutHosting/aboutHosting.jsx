@@ -163,23 +163,37 @@ const ButtonHire = styled.button`
 
 export const AboutHosting = () => {
     const { id } = useParams();
-    const [image, setImage] = useState("https://i.t4w.mobi/h/BR/1010502/775076/775076_11003Property586013.jpg")
-    const [stars, setStars] = useState("4")
-    const [title, setTitle] = useState("Lua Nova Hotel")
-    const [description, setDescription] = useState(`Situado a 250 m pela saída lateral do Terminal Rodoviário Tietê/Metro Portuguesa-Tietê,. A 5min.de carro do Anhembi Centro de exposições, 10min de caminhada do Expo Center Norte, 3min. de caminhada do Shopping Center Norte, O Aeroporto Internacional de Guarulhos fica a 22,7 km de distância aprox. 25/30min. de carro.
- Os quartos claros são decorados em tons agradáveis, todos os quartos do Hotel Lua Nova possuem TV e roupa de cama, banheiro privativo, Wifi e café da manhã gratuito.
-    `)
-    const [address, setAddress] = useState("R. Cel. Antônio de Carvalho , 269")
-    const [categoria, setCategoria] = useState("Hotel")
+    const [image, setImage] = useState("")
+    const [stars, setStars] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState(``)
+    const [address, setAddress] = useState("")
+    const [categoria, setCategoria] = useState("")
     const [starts, setStart] = useState()
     
-    useEffect(() => {
-        try{
+    useEffect(async ()  => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`https://back-end-216p.onrender.com/hotels/${id}`)
+                if (!response.ok) {
+                    throw new Error('Erro na requisição')
+                }
+                const data = await response.json()
+                return data
+            } catch (error) {
+                console.error('Erro:', error);
+            }
+        };
+    
+        const data = await fetchData();
 
-        }catch(error){
-            console.log(error);
-        }
-    }, [])
+        setImage(data.data.thumb)
+        setStars(data.data.stars)
+        setTitle(data.data.name)
+        setDescription(data.data.description)
+        setAddress(data.data.address)
+    }, []); 
+    
 
     return (
         <>

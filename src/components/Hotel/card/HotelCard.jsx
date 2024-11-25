@@ -118,7 +118,7 @@ export function HotelCard({ hotel }) {
   const navigate = useNavigate();
 
   function redirectToHotelPage(id) {
-    navigate("aboutHosting/" + id);
+    navigate("/aboutHosting/" + id);
   }
 
   return (
